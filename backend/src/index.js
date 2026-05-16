@@ -30,7 +30,9 @@ app.use('/api/projects', projectRoutes);
 app.use('/api/projects', taskRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 
-const clientDist = path.join(__dirname, '../../frontend/dist');
+// const clientDist = path.join(__dirname, '../../frontend/dist');
+const clientDist = path.join(process.cwd(), 'frontend/dist');
+
 app.use(express.static(clientDist));
 
 app.get(/^\/(?!api).*/, (_req, res) => {
@@ -52,7 +54,7 @@ async function start() {
       });
     } catch (err) {
       console.warn('Database sync warning:', err.message);
-    }
+        }
   }
 
   app.listen(PORT, () => {
