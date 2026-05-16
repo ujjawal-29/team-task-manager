@@ -31,7 +31,7 @@ app.use('/api/projects', taskRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 
 // const clientDist = path.join(__dirname, '../../frontend/dist');
-const clientDist = path.join(process.cwd(), 'frontend/dist');
+const clientDist = path.join(__dirname, '../public');
 
 app.use(express.static(clientDist));
 
